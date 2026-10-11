@@ -7,3 +7,5 @@ seaborn
 jupyter
 python-dotenv
 tqdm
+
+sentence-transformers

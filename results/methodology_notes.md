@@ -15,3 +15,6 @@
 - **Calibration Methods:** 
   - (a) **Scaled:** Direct scaling of the cosine similarity (`score = 5 * cosine`).
   - (b) **Calibrated:** A Linear Regression model was fitted on the DEV set to map cosine similarity to the `human_score`, then applied to the TEST set (predictions clipped bounded between 0 and 5).
+
+## GenAI Model
+- **Model ID:** gemini-3.6-flash (as derived from your active Flash settings before the upgrade to Pro).
