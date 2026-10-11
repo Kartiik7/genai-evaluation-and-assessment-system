@@ -44,25 +44,34 @@
 - **Number of Resamples**: $B = 1,000$ iterations.
 - **Random Seed**: `np.random.default_rng(42)`.
 - **Method**: Empirical percentile bootstrap interval (2.5th and 97.5th percentiles) computed over the 150 test instances.
-- **Metrics Evaluated**: Mean Absolute Error (MAE) and Pearson Correlation ($r$).
+- **Metrics Evaluated**: MAE, RMSE, Pearson ($r$), Spearman ($\rho$), and QWK ($\kappa$).
+- **Paired Hypothesis Testing**: `paired_bootstrap_diff(human, pred_a, pred_b, metric, n=1000, seed=42)` evaluating differences on identical resampled indices.
 
 ---
 
 ## 5. Recorded Baseline Evaluation Results (Test Set, N = 150)
 
-| Method | Scaling Type | MAE | RMSE | Pearson ($r$) | Spearman ($\rho$) | QWK ($\kappa$) | Within $\pm 1$ | 95% CI (MAE) | 95% CI (Pearson) |
-|---|---|---|---|---|---|---|---|---|---|
-| **TF-IDF** | Scaled ($5 \times \cos$) | 2.367 | 2.729 | 0.168 | 0.229 | 0.085 | 20.7% | — | — |
-| **TF-IDF** | Calibrated (OLS) | 0.870 | 1.180 | 0.178 | 0.231 | 0.163 | 62.7% | [0.742, 1.003] | [0.004, 0.361] |
-| **MiniLM-L6-v2** | Scaled ($5 \times \cos$) | 1.464 | 1.756 | 0.521 | 0.502 | 0.317 | 36.7% | — | — |
-| **MiniLM-L6-v2** | Calibrated (OLS) | **0.781** | **0.989** | **0.524** | **0.502** | **0.400** | 64.7% | [0.685, 0.884] | [0.391, 0.634] |
-| **MPNet-base-v2** | Scaled ($5 \times \cos$) | 1.366 | 1.650 | 0.521 | 0.479 | 0.344 | 39.3% | — | — |
-| **MPNet-base-v2** | Calibrated (OLS) | 0.800 | 0.988 | 0.522 | 0.480 | 0.369 | **69.3%** | [0.710, 0.896] | [0.375, 0.636] |
+| Method | Scaling Type | MAE [95% CI] | RMSE [95% CI] | Pearson [95% CI] | Spearman [95% CI] | QWK [95% CI] | Within $\pm 1$ |
+|---|---|---|---|---|---|---|---|
+| **constant_mean** | Dev Mean (4.13) | 0.926 [0.810, 1.041] | 1.155 [0.969, 1.334] | — | — | 0.000 [0.000, 0.000] | 78.7% |
+| **TF-IDF** | Scaled ($5 \times \cos$) | 2.367 | 2.729 | 0.168 | 0.229 | 0.085 | 20.7% |
+| **TF-IDF** | Calibrated (OLS) | 0.870 [0.742, 1.003] | 1.180 [0.960, 1.392] | 0.178 [0.004, 0.361] | 0.231 [0.065, 0.381] | 0.163 [0.006, 0.352] | 62.7% |
+| **MiniLM-L6-v2** | Scaled ($5 \times \cos$) | 1.464 | 1.756 | 0.521 | 0.502 | 0.317 | 36.7% |
+| **MiniLM-L6-v2** | Calibrated (OLS) | **0.781** [0.688, 0.879] | 0.989 [0.877, 1.095] | **0.524** [0.387, 0.641] | **0.502** [0.367, 0.621] | **0.400** [0.296, 0.493] | 64.7% |
+| **MPNet-base-v2** | Scaled ($5 \times \cos$) | 1.366 | 1.650 | 0.521 | 0.479 | 0.344 | 39.3% |
+| **MPNet-base-v2** | Calibrated (OLS) | 0.800 [0.708, 0.898] | **0.988** [0.874, 1.100] | 0.522 [0.364, 0.642] | 0.480 [0.322, 0.606] | 0.369 [0.253, 0.462] | **69.3%** |
 
-### Key Observations for Discussion:
-- **Embedding Superiority over Lexical (TF-IDF)**: MiniLM and MPNet achieve a correlation ($r \approx 0.524$) roughly 3x higher than TF-IDF ($r \approx 0.178$). The bootstrap 95% CIs for Pearson ($[0.391, 0.634]$ vs $[0.004, 0.361]$) confirm non-overlapping intervals, proving the gap is statistically meaningful.
-- **MiniLM vs MPNet**: MiniLM performs comparably or marginally better than MPNet in correlation and QWK (0.400 vs 0.369) despite having 5x fewer parameters, demonstrating that lightweight sentence transformers provide strong sentence-level grading baselines.
-- **Impact of Calibration**: Calibrating via dev-fitted linear regression decreases MAE dramatically (from 2.367 to 0.870 for TF-IDF; from 1.464 to 0.781 for MiniLM) and shifts predictions into the natural human distribution.
+### Paired Bootstrap Difference Results (n=1000, seed=42):
+- **Calibrated Baselines vs `constant_mean`**:
+  - `TF-IDF vs constant_mean`: $\Delta$ MAE = -0.0546 `[-0.1367, +0.0259]` (not significant), $\Delta$ RMSE = +0.0240 `[-0.0631, +0.1031]` (not significant), $\Delta$ QWK = +0.1644 `[+0.0062, +0.3524]` ($p < 0.05$).
+  - `MiniLM vs constant_mean`: $\Delta$ MAE = **-0.1438** `[-0.2452, -0.0444]` ($p < 0.05$), $\Delta$ RMSE = **-0.1628** `[-0.2863, -0.0377]` ($p < 0.05$), $\Delta$ QWK = **+0.3967** `[+0.2958, +0.4933]` ($p < 0.05$).
+  - `MPNet vs constant_mean`: $\Delta$ MAE = **-0.1254** `[-0.2136, -0.0362]` ($p < 0.05$), $\Delta$ RMSE = **-0.1647** `[-0.2713, -0.0509]` ($p < 0.05$), $\Delta$ QWK = **+0.3661** `[+0.2535, +0.4624]` ($p < 0.05$).
+- **MiniLM (Calibrated) vs TF-IDF (Calibrated)**:
+  - $\Delta$ MAE: -0.0892 `[-0.1880, +0.0127]`
+  - $\Delta$ RMSE: **-0.1868** `[-0.3425, -0.0322]` ($p < 0.05$)
+  - $\Delta$ Pearson: **+0.3428** `[+0.1161, +0.5738]` ($p < 0.05$)
+  - $\Delta$ Spearman: **+0.2716** `[+0.1052, +0.4447]` ($p < 0.05$)
+  - $\Delta$ QWK: **+0.2323** `[+0.0106, +0.4157]` ($p < 0.05$)
 
 ---
 
