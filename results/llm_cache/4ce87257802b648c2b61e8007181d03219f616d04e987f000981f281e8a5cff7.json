@@ -1,0 +1,4 @@
+{
+  "reasoning": "The student correctly identifies how push and pop operations work using a linked list by manipulating pointers at the beginning of the list (head/top). The explanation accurately reflects the mechanics described in the reference answer.",
+  "score": 5
+}

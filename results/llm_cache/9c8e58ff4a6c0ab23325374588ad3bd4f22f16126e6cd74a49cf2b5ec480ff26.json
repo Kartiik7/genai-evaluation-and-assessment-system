@@ -1,0 +1,4 @@
+{
+  "reasoning": "The student correctly identifies both steps described in the reference answer: converting the infix expression to postfix and then evaluating it. They even provide an accurate additional detail that a stack is used for evaluation.",
+  "score": 5
+}

@@ -1,0 +1,4 @@
+{
+  "reasoning": "The student's answer is completely incorrect; it misunderstands the types, claiming that string holds a single word while char holds phrases or strings of characters. It completely misses the actual difference regarding the null-terminator character (\\0) appended to a char array.",
+  "score": 0
+}

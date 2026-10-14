@@ -25,14 +25,21 @@ from dotenv import load_dotenv
 from google import genai
 from google.genai import types
 
+try:
+    from config import THINKING_LEVEL, REQUEST_DELAY_SECONDS
+except ImportError:
+    THINKING_LEVEL = "low"
+    REQUEST_DELAY_SECONDS = 4.0
+
 # ── Config ────────────────────────────────────────────────────────────────────
 load_dotenv()
 
 CACHE_DIR   = Path("results/llm_cache")
 LOG_PATH    = Path("results/llm_log.csv")
-CALL_DELAY_S = 2.0          # seconds between API calls (free tier: 15 RPM)
+CALL_DELAY_S = REQUEST_DELAY_SECONDS          # seconds between API calls (respecting RPM limit)
 MAX_ATTEMPTS = 5
 BACKOFF_BASE = 2.0          # seconds; doubles each retry
+
 
 # ── Logging setup ─────────────────────────────────────────────────────────────
 logging.basicConfig(level=logging.INFO,
@@ -121,10 +128,24 @@ def generate_json(prompt: str,
 
     # ── API call with retry ───────────────────────────────────────────────────
     client = _get_client()
-    config = types.GenerateContentConfig(
-        temperature=temperature,
-        response_mime_type="application/json",
-    )
+    
+    # Configure thinking level if specified
+    thinking_cfg = None
+    if THINKING_LEVEL:
+        try:
+            thinking_cfg = types.ThinkingConfig(thinking_level=THINKING_LEVEL)
+        except Exception:
+            pass
+
+    config_kwargs = {
+        "temperature": temperature,
+        "response_mime_type": "application/json",
+    }
+    if thinking_cfg is not None:
+        config_kwargs["thinking_config"] = thinking_cfg
+
+    config = types.GenerateContentConfig(**config_kwargs)
+
 
     last_exc = None
     for attempt in range(1, MAX_ATTEMPTS + 1):
@@ -145,11 +166,21 @@ def generate_json(prompt: str,
             if any(tok in exc_str for tok in ("429", "rate", "quota",
                                                "500", "503", "unavailable")):
                 wait = BACKOFF_BASE ** attempt
+                # If error contains recommended retry delay, honor it
+                import re
+                retry_match = re.search(r"retry in (\d+(?:\.\d+)?)s", exc_str)
+                if not retry_match:
+                    retry_match = re.search(r"retrydelay': '(\d+)s", exc_str)
+                if retry_match:
+                    wait = max(wait, float(retry_match.group(1)) + 1.0)
+                else:
+                    wait = max(wait, 12.0)  # at least 12s on rate limit
                 logger.warning("Retryable error (attempt %d): %s — sleeping %.1fs",
                                attempt, exc, wait)
                 time.sleep(wait)
             else:
                 raise   # non-retryable: bubble up immediately
+
     else:
         raise RuntimeError(
             f"All {MAX_ATTEMPTS} attempts failed. Last: {last_exc}") from last_exc

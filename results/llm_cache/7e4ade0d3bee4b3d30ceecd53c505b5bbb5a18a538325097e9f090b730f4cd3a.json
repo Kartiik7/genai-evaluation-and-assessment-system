@@ -1,0 +1,4 @@
+{
+  "reasoning": "The student confuses the concept of static lifetime with array size immutability. Static refers to memory lifetime and initialization across function calls, not fixed array length (which standard arrays have regardless of being static or automatic). Therefore, the answer is completely incorrect.",
+  "score": 0
+}

@@ -1,0 +1,4 @@
+{
+  "reasoning": "The student correctly identifies both main causes of infinite recursion: omitting the base case and failing to change the values/state toward the base case (an incorrect recursive step). The answer is concise and completely accurate.",
+  "score": 5
+}

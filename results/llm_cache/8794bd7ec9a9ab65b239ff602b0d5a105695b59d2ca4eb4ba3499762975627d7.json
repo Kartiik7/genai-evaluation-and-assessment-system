@@ -1,0 +1,4 @@
+{
+  "reasoning": "The student correctly identifies the main advantage of arrays (direct access) and accurately contrasts it with linked lists requiring traversal to reach an element. This matches the reference answer completely.",
+  "score": 5
+}

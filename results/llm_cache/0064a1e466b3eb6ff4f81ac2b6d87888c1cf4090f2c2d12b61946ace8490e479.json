@@ -1,0 +1,4 @@
+{
+  "reasoning": "The student correctly lists all four ways to pass a pointer to a function as specified in the reference answer. All combinations of const and non-const for both the pointer and the data are accurately identified.",
+  "score": 5
+}

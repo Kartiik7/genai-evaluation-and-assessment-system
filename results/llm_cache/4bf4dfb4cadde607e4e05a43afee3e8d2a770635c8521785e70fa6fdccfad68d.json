@@ -1,0 +1,4 @@
+{
+  "reasoning": "The student correctly listed all three access specifiers available in C++ ('public', 'private', and 'protected'). While the reference answer omitted 'protected', the student's answer is actually more complete and fully accurate.",
+  "score": 5
+}
