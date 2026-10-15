@@ -16,3 +16,6 @@ THINKING_LEVEL = "low"
 RPM_LIMIT = 5
 REQUEST_DELAY_SECONDS = 12.5  # Safe spacing (60s / 5 RPM = 12.0s + 0.5s buffer)
 
+# ── Retrieval configuration ────────────────────────────────────────────────────
+RETRIEVAL_MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
+RETRIEVAL_QUERY_MODE = "question"  # "question" (default) or "question+reference"

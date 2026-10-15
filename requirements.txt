@@ -10,3 +10,4 @@ tqdm
 
 sentence-transformers
 google-genai
+faiss-cpu
