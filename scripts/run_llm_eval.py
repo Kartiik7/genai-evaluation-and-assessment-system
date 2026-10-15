@@ -139,6 +139,7 @@ def main():
         reasoning = val_res.get("reasoning", "")
 
         record = {
+            "row_id": row.get("row_id", f"{args.split}_{idx:03d}"),
             "question_id": question_id,
             "human_score": human_score,
             "pred_score": pred_score,

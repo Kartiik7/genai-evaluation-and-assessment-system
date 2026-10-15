@@ -1,151 +1,151 @@
-question_id,human_score,pred_scaled,pred_calibrated
-8.2,5.0,2.9923754,4.1176534
-12.9,1.875,2.2063868,3.6992483
-1.1,2.0,2.5016084,3.8564036
-3.1,4.5,2.847159,4.0403504
-8.7,5.0,4.3098383,4.818978
-2.4,5.0,3.6630397,4.4746675
-7.1,4.5,2.5521965,3.8833332
-8.2,5.0,3.3350139,4.30005
-2.3,3.5,2.918563,4.0783606
-7.1,5.0,2.3931856,3.798687
-4.2,3.0,2.579422,3.8978262
-3.4,4.5,1.5881519,3.370144
-4.4,4.5,4.0637207,4.687962
-3.2,4.5,1.2465992,3.1883254
-4.4,5.0,4.270354,4.7979593
-7.4,4.0,0.81800705,2.9601731
-7.3,4.5,3.0887184,4.1689396
-3.3,2.5,0.8770193,2.991587
-11.3,5.0,2.8446915,4.0390368
-7.4,2.5,1.0056878,3.060081
-2.1,5.0,4.5776362,4.9615345
-8.4,3.0,3.6076093,4.4451604
-11.11,5.0,2.7727966,4.0007653
-2.5,5.0,1.770696,3.4673176
-7.5,3.0,3.263145,4.261792
-5.2,5.0,2.4214735,3.8137455
-2.5,5.0,2.1254313,3.6561534
-4.3,5.0,4.2185063,4.770359
-3.4,3.0,1.4687608,3.3065884
-6.7,5.0,3.6016748,4.4420013
-7.3,4.0,1.9242537,3.5490608
-10.6,5.0,3.3060598,4.284637
-1.3,3.5,2.7742708,4.0015497
-3.7,4.0,4.017268,4.6632338
-9.2,5.0,4.7176943,5.0
-3.6,5.0,2.4193876,3.812635
-7.7,5.0,2.557429,3.8861187
-2.1,3.5,3.8362575,4.5668764
-11.3,2.375,2.354693,3.7781963
-12.5,5.0,3.4706104,4.372232
-5.4,4.0,1.303107,3.218406
-11.9,4.125,2.3817487,3.7925987
-9.4,5.0,1.6460437,3.4009614
-1.3,3.5,1.9697231,3.5732656
-9.6,5.0,4.7181726,5.0
-6.5,5.0,4.1394596,4.72828
-3.3,5.0,3.6659372,4.47621
-8.1,5.0,3.372589,4.320052
-1.1,1.5,2.3168657,3.7580595
-12.6,5.0,2.91026,4.0739408
-9.3,4.0,2.3959281,3.800147
-4.4,5.0,4.1936426,4.7571235
-2.3,4.0,3.840344,4.5690517
-8.3,4.0,3.4871771,4.381051
-1.6,4.0,3.9190342,4.610941
-5.1,2.0,2.4346707,3.8207707
-12.6,5.0,3.5893607,4.4354463
-6.3,5.0,3.0133784,4.128834
-4.4,3.0,2.6866589,3.9549112
-12.11,1.875,1.1890421,3.1576858
-4.3,5.0,4.143666,4.7305193
-10.5,5.0,3.6350286,4.459757
-5.4,2.5,1.2723801,3.2020493
-8.6,5.0,2.499037,3.8550348
-7.5,5.0,3.8537505,4.576189
-11.3,0.0,0.18645792,2.6239808
-2.2,4.0,4.042198,4.676505
-1.5,5.0,3.5060992,4.391124
-8.3,4.5,2.2427619,3.718612
-4.1,4.0,2.538776,3.8761888
-6.4,3.5,2.351438,3.7764635
-3.7,5.0,3.1338012,4.1929383
-2.6,3.0,3.6726193,4.4797673
-4.4,4.0,3.8092134,4.55248
-3.6,5.0,3.541565,4.410003
-4.1,4.5,2.2980103,3.7480226
-7.7,5.0,2.4737346,3.8415656
-11.4,3.75,3.0086536,4.126319
-9.6,5.0,4.9999995,5.0
-5.2,5.0,2.98627,4.1144032
-9.3,3.5,3.5085332,4.3924193
-8.7,2.0,2.891102,4.0637426
-2.1,5.0,4.2672386,4.7963004
-3.7,5.0,4.4781775,4.9085894
-4.3,4.0,0.16835429,2.6143436
-4.5,4.0,1.1194052,3.120616
-1.2,3.0,1.3010032,3.217286
-9.2,5.0,5.0,5.0
-11.1,5.0,4.6284227,4.9885697
-4.1,5.0,3.0846715,4.1667852
-11.7,2.25,3.7231483,4.506665
-11.5,5.0,3.1886535,4.222138
-11.2,5.0,4.340881,4.8355026
-6.4,4.0,2.2502036,3.7225735
-8.7,3.0,3.148688,4.2008634
-4.1,3.0,2.5294728,3.8712366
-7.7,0.0,0.2205266,2.6421165
-1.5,5.0,3.482482,4.3785515
-12.1,3.875,3.021995,4.133421
-1.5,4.0,2.3685832,3.7855902
-6.1,5.0,3.5756958,4.428172
-12.6,5.0,4.170764,4.7449446
-11.3,2.375,1.3137889,3.2240922
-12.9,4.25,3.4084964,4.3391666
-1.3,3.5,2.2975907,3.747799
-9.1,3.5,2.4129639,3.8092155
-4.4,3.0,3.4110699,4.3405366
-3.6,5.0,3.9618402,4.633728
-4.2,3.0,2.2132921,3.7029243
-6.6,2.0,1.6962109,3.4276667
-8.3,5.0,3.6457338,4.465455
-5.2,4.5,2.6602993,3.9408793
-4.2,2.5,2.050896,3.616476
-4.2,5.0,3.4862366,4.3805504
-3.7,0.0,0.11056427,2.5835805
-3.2,4.5,1.7959771,3.4807754
-12.6,5.0,3.7164402,4.5030947
-11.11,3.25,1.6545897,3.4055107
-10.7,5.0,1.8916787,3.5317202
-10.2,4.0,1.6263711,3.390489
-3.4,5.0,2.2371645,3.7156324
-4.1,5.0,2.2103336,3.7013493
-2.7,1.5,2.133762,3.6605883
-11.4,5.0,2.6541436,3.9376025
-5.4,2.0,0.9978782,3.0559237
-1.7,5.0,3.4663482,4.3699627
-3.3,5.0,2.8098905,4.020511
-3.1,5.0,3.8245785,4.5606594
-4.4,5.0,4.1614685,4.739996
-6.1,5.0,4.2461452,4.7850723
-7.7,5.0,3.1397362,4.196098
-4.3,5.0,0.65297455,2.8723214
-11.7,3.75,3.6019275,4.442136
-11.6,5.0,1.4458454,3.2943897
-3.6,5.0,4.0292926,4.669635
-2.7,4.0,2.5578494,3.8863423
-4.2,5.0,3.7197118,4.504836
-9.2,5.0,3.0925882,4.1709995
-2.4,5.0,3.9995031,4.653777
-3.3,3.5,4.2673063,4.7963367
-12.4,2.375,3.448142,4.3602715
-8.1,5.0,2.1540241,3.6713743
-1.1,4.5,2.9676676,4.104501
-9.6,5.0,4.9999995,5.0
-8.4,2.5,2.244202,3.7193785
-5.1,5.0,3.8820157,4.591235
-7.6,4.5,1.8265374,3.4970434
-3.6,5.0,3.5802417,4.430592
-3.6,5.0,2.9974663,4.120363
-11.4,4.75,2.9689856,4.105202
+row_id,question_id,human_score,student_answer,pred_scaled,pred_calibrated
+test_000,8.2,5.0,Push and pop are two main functions defined in a stack,2.9923754,4.1176534
+test_001,12.9,1.875,The way you delete a node from a binary search tree is first you have take the root and then see the nodes that are coming from the root. And delete the nodes and set the root to NULL.,2.2063868,3.6992483
+test_002,1.1,2.0,A prototype program provides a basic groundwork from which to further enhance and improve a solution to a problem.,2.5016084,3.8564036
+test_003,3.1,4.5,"It includes the name of the program, the type of parameters it can take. It should also include a brief description of what the function does.",2.847159,4.0403504
+test_004,8.7,5.0,pop all elements off stack until you find that element and then push the popped elements back on the stack,4.3098383,4.818978
+test_005,2.4,5.0,when the programmer does not explicitly include a constructor,3.6630397,4.4746675
+test_006,7.1,4.5,"Consists of sequence of nodes, each containing a number of data fields and one or two links called pointers that point to the next or previous nodes. ",2.5521965,3.8833332
+test_007,8.2,5.0,Push which inserts an element on the top of the stack and pop which removes the last inserted element from the stack.,3.3350139,4.30005
+test_008,2.3,3.5,A constructor is called whenever a new object of that class is made.,2.918563,4.0783606
+test_009,7.1,5.0,"A linked list is a data structure that is not necessarily in the same contiguous memory space (such as arrays). It holds the data type and points to the next data item in the list, or in a doubly linked list also to the previous item.",2.3931856,3.798687
+test_010,4.2,3.0,strings with type string are just that. Strings. They are not part of an array list at all where as one declared by an array is actually an array of characters able to be pointed and detected.,2.579422,3.8978262
+test_011,3.4,4.5,Don't have to make copies of stuff.,1.5881519,3.370144
+test_012,4.4,4.5,the static array exists for the duration of the program,4.0637207,4.687962
+test_013,3.2,4.5,the whole code,1.2465992,3.1883254
+test_014,4.4,5.0,"When we declare it static the array is not destroyed after the function is over.  When an array is not declared as static, the array is created and initialized every time a function calls it.",4.270354,4.7979593
+test_015,7.4,4.0,the pointer to the first element is passed to a function,0.81800705,2.9601731
+test_016,7.3,4.5,"direct access to elements, and speed, linked lists have increased search times to access elements even if the list is sorted. ( like getting the last element without a pointer directly to the end of the list. )",3.0887184,4.1689396
+test_017,3.3,2.5,compiler ignores inline qualifier,0.8770193,2.991587
+test_018,11.3,5.0,They are initialized with a constructor.,2.8446915,4.0390368
+test_019,7.4,2.5,passes a pointer to a linked list object,1.0056878,3.060081
+test_020,2.1,5.0,data members and member functions.,4.5776362,4.9615345
+test_021,8.4,3.0,You can add an element to the end of the linked list and update a pointer called top each time you modify the list.,3.6076093,4.4451604
+test_022,11.11,5.0,divides the line in half coninuously until you get to only a single value then recombine the values to form a sorted line.,2.7727966,4.0007653
+test_023,2.5,5.0,as many as you want,1.770696,3.4673176
+test_024,7.5,3.0,"In circular linked list each node has successor, no node contains NULL, while in basic linked list last node contain NULL.",3.263145,4.261792
+test_025,5.2,5.0,Select the smallest number in the list and move it to the front of the list and then advance to the next number.,2.4214735,3.8137455
+test_026,2.5,5.0,As many as the programmer wants to create.,2.1254313,3.6561534
+test_027,4.3,5.0,by reference only,4.2185063,4.770359
+test_028,3.4,3.0,"Actual arguments are associated with dummy arguments when a function or subroutine is referenced. In a procedure reference, the actual argument list identifies the correspondence between the actual arguments provided in the list and the dummy arguments of the subprogram",1.4687608,3.3065884
+test_029,6.7,5.0,"Function Pointers are pointers, i.e. variables, which point to the address of a function.",3.6016748,4.4420013
+test_030,7.3,4.0,Take up less memory and are contiguously stored,1.9242537,3.5490608
+test_031,10.6,5.0,"For every node in the binary tree we first visit its left sub-tree (if its there) and then visit the parent node itself, and then the right sub-tree (if its there).",3.3060598,4.284637
+test_032,1.3,3.5,"Existing classes can be reused, Program maintenance and verification are easier ",2.7742708,4.0015497
+test_033,3.7,4.0,"Both will repeat (loop) until a condition is met, and exit the loop. Both are capable of entering an infinite loop.",4.017268,4.6632338
+test_034,9.2,5.0,"enqueue, dequeue",4.7176943,5.0
+test_035,3.6,5.0,No easily reached base case and no base case at all,2.4193876,3.812635
+test_036,7.7,5.0,"Each node requires an extra node, requires more memory, and is more difficult to insert and remove individual nodes",2.557429,3.8861187
+test_037,2.1,3.5,member functions,3.8362575,4.5668764
+test_038,11.3,2.375,"objects are initialized by giving the object a type, name, and initial value",2.354693,3.7781963
+test_039,12.5,5.0,You do not have to predetermine your list size as you do with arrays. Linked list have the ability to be as large as you want them adding memory as needed.,3.4706104,4.372232
+test_040,5.4,4.0,"T(n) = 0, if n&lt;2.",1.303107,3.218406
+test_041,11.9,4.125,The divide-and-conquer technique is where it takes the sorting algorithm and breaks up the array into smaller elements of the array to tackle the problem and run the algorithm.,2.3817487,3.7925987
+test_042,9.4,5.0,A list can have unlimited elements in it.  You can push a node onto the end of the list and pop the one in the front.,1.6460437,3.4009614
+test_043,1.3,3.5,"Well for one encapsulation the values of the variables inside an object are private, unless methods are written to pass info outside of the object. As well as Inheritance where each subclass inherits all variables and methods of its super class.  Example in the book included obj clock and how obj alarm would still use clock from the first class. ",1.9697231,3.5732656
+test_044,9.6,5.0,Push.,4.7181726,5.0
+test_045,6.5,5.0,"The size of an operand in bytes. Used with variable names, type names, and constant values",4.1394596,4.72828
+test_046,3.3,5.0,"instead of calling the function every time it is invoked, the compiler will replace the function call with a copy of the function body",3.6659372,4.47621
+test_047,8.1,5.0,A data structure for storing items which are to be accessed in last-in first-out order that can be implemented in three ways.,3.372589,4.320052
+test_048,1.1,1.5,A prototype program is used in problem solving to collect data for the problem.,2.3168657,3.7580595
+test_049,12.6,5.0,"A linked list with a First In, Out structure dequeue at the head of the list enqueue at the end of the list",2.91026,4.0739408
+test_050,9.3,4.0,Keep track of the front and rear indexes. Either: 1)Dequeue items by shifting the array left 2)Use wrapped configuration,2.3959281,3.800147
+test_051,4.4,5.0,A static local array exists for the duration of the program and its elements are initialized to 0 if not explicitly initialized. So a static local array's elements will still be the same when called later unless specifically initialized to something else.  This doesn't happen for automatic arrays.,4.1936426,4.7571235
+test_052,2.3,4.0,"Constructors cannot return values, so they cannot specify a return type. Normally, constructors are declared public.",3.840344,4.5690517
+test_053,8.3,4.0,treat the beginning of the array as the beginning of the stack,3.4871771,4.381051
+test_054,1.6,4.0,Variables are declared before they are actually used. They can be declared before main() to use globally,3.9190342,4.610941
+test_055,5.1,2.0,Compare two numbers at a time and swap until the entire list is sorted.,2.4346707,3.8207707
+test_056,12.6,5.0,"Queue is a buffer, it follows the rule of First In and First out. Queue is very useful in computer science for scheduleing .",3.5893607,4.4354463
+test_057,6.3,5.0,a synonym for the object to which its pointer operand points,3.0133784,4.128834
+test_058,4.4,3.0,"if they are declared fixed or static that means they can't change size once their storage has been allocated, however one that is not or dynamic arrarys can be resized.   ",2.6866589,3.9549112
+test_059,12.11,1.875,Depends on the location of the node you are looking for. If it is the root it is one step.  else If it is smaller than the current you are on node you go to the left.  If it is larger than the current node you are on go to the right.,1.1890421,3.1576858
+test_060,4.3,5.0,by refrence,4.143666,4.7305193
+test_061,10.5,5.0,"it is a binary tree where each node has a unique key, the left child of a node has only values less than that node, and the right child of each node has higher values than that node.",3.6350286,4.459757
+test_062,5.4,2.5,O(nlog(n)),1.2723801,3.2020493
+test_063,8.6,5.0,infix expressions are converted to postfix expressions before they can be evaluated by a computer.  Operands stay in the same order.  Operators always follow the operands.,2.499037,3.8550348
+test_064,7.5,5.0,"On a circular linked list, the end element points to the head, thus making the circle. A basic link list has nothing pointing to the head, and the last element points to null.",3.8537505,4.576189
+test_065,11.3,0.0,not answered,0.18645792,2.6239808
+test_066,2.2,4.0,data members are declared in a class definition but outside the bodies of a class's member-function definitions. Local variables are declared in a function definition's body,4.042198,4.676505
+test_067,1.5,5.0,A variable is a location in a computers memory where a value can be stored   for use by a program.,3.5060992,4.391124
+test_068,8.3,4.5,"Make an array, make the bottom at spot 0, make the last spot in the array the top, and increment top when you ad",2.2427619,3.718612
+test_069,4.1,4.0,Explicitly int array[10]; or by variable const int size = 10; int array[size];,2.538776,3.8761888
+test_070,6.4,3.5,&[b3] is as bptr + 3. Array can be treated as pointer,2.351438,3.7764635
+test_071,3.7,5.0,Both iteration and recursion are based on control statements and involve repetition. They can both also occur indefinitely.,3.1338012,4.1929383
+test_072,2.6,3.0,a prototype does not include any actual code where the function has all the code that is executed in the program.,3.6726193,4.4797673
+test_073,4.4,4.0,"A static array has a set size that cannot change. The data may not need all of the space assigned, or could go beyond the size.",3.8092134,4.55248
+test_074,3.6,5.0,"Infinite recursion is an infinite loop if the condition is not met.  Either omitting the base case, or writing the recursion step incorrectly so that it does not converge on the base case causes ""indefinite"" recursion, eventually exhausting memory.  ",3.541565,4.410003
+test_075,4.1,4.5,"In a string you can specify with the strlen(arrayname) command. This gets the length of the string. Another way is with integers where you initiate the size from the start, ex array[40] specifying a possible length of up to 40. Then it is passed by an object the actual ammout in the array. Another way is to declare it in an initializing program. ",2.2980103,3.7480226
+test_076,7.7,5.0,"in a doubly linked list there are twice as many pointers for each element , therefore more memory is used",2.4737346,3.8415656
+test_077,11.4,3.75,a function signature is the elements that make it unique such as the variables it calls for and also I suppose this includes the program it is in.,3.0086536,4.126319
+test_078,9.6,5.0,push,4.9999995,5.0
+test_079,5.2,5.0,Find the lowest value and place it in the front of the list and swap it with that value. Continue moving right.,2.98627,4.1144032
+test_080,9.3,3.5,By using the beginning of the array as the removal point of the queue (or beginning of the queue) and the ith element as the end of the queue.,3.5085332,4.3924193
+test_081,8.7,2.0,could traverse through the list/array to find the element.,2.891102,4.0637426
+test_082,2.1,5.0,Member functions and data members belonging to the class.,4.2672386,4.7963004
+test_083,3.7,5.0,Both are bases on a control statement. Both involve repetition. Both involve a termination test. Both gradually approach termination. Both can occur infinitely.,4.4781775,4.9085894
+test_084,4.3,4.0,"The function recieves both the array and the array size as parameters. function(arrayName, arraySize)",0.16835429,2.6143436
+test_085,4.5,4.0,"Two paramaters, the array and how many columns.  array(a[],[3])",1.1194052,3.120616
+test_086,1.2,3.0,"Refining, production, and maintenance",1.3010032,3.217286
+test_087,9.2,5.0,enqueue and dequeue,5.0,5.0
+test_088,11.1,5.0,member functions and data members,4.6284227,4.9885697
+test_089,4.1,5.0,1-Initializing an array in a declaration with an initializer list 2-Specifying an arrays size with a constant variable,3.0846715,4.1667852
+test_090,11.7,2.25,an array that is declared as static can only be used in the function that its being called in. Its a constant array. Static is another way of say const.,3.7231483,4.506665
+test_091,11.5,5.0,a function that calls itself until a base case is met,3.1886535,4.222138
+test_092,11.2,5.0,public or private,4.340881,4.8355026
+test_093,6.4,4.0,a[i] = *(a+i),2.2502036,3.7225735
+test_094,8.7,3.0,isEmptry()//determines if the stack is full or not pop()//to remove the top element if it is not the on you are looking for search()//you compare each element of the stack to the data you are looking for.,3.148688,4.2008634
+test_095,4.1,3.0,Pass the length along with the array or use a vector.,2.5294728,3.8712366
+test_096,7.7,0.0,not answered,0.2205266,2.6421165
+test_097,1.5,5.0,A variable is the location in a computer's memory where a value can be stored for use by a program.,3.482482,4.3785515
+test_098,12.1,3.875,A pointer is an alias to an object in memory.,3.021995,4.133421
+test_099,1.5,4.0,"It's a sybol or name for a value/number. Example: 'a_used_number' can stand for any given number, and the programmer can refer to that number by using the variable name.",2.3685832,3.7855902
+test_100,6.1,5.0,A pointer is a reference to a location in memory,3.5756958,4.428172
+test_101,12.6,5.0,"A queue is a data structure that holds a set of objects, which has a FIFO (first in first out) priority.",4.170764,4.7449446
+test_102,11.3,2.375,"The value is specified after declaration,  It can initialized anywhere between the declaration and the corresponding }.",1.3137889,3.2240922
+test_103,12.9,4.25,"if root, set root to NULL else if deleting right leaf, set rightPtr of parent node to NULL else if deleting left leaf, set leftPtr of parent node to NULL else if deleting a left or right subtree child node, set the max leaf child in the left subtree as the new child node.",3.4084964,4.3391666
+test_104,1.3,3.5,The main advantages to object-oriented programming are that existing classes can be reused and program maintenance and verification are easier.,2.2975907,3.747799
+test_105,9.1,3.5,"Queue is a buffer, which store element in a particular order",2.4129639,3.8092155
+test_106,4.4,3.0,A static array cannot be changed in the program.,3.4110699,4.3405366
+test_107,3.6,5.0,"Lack of defining a base case, or writing the recursion step incorrectly so that it does not converge on the base case",3.9618402,4.633728
+test_108,4.2,3.0,"the type string uses less storage and you have to change the string all at once. with an array of characters you can make permutations of words using the characters stored in the array, without needing to actually access and change the variables. with an array of characters you can just change how they're accessed.",2.2132921,3.7029243
+test_109,6.6,2.0,By argument and reference.,1.6962109,3.4276667
+test_110,8.3,5.0,"Create a int value that stores the ""head"" of the stack. Increment the top when one element is pushed and decrement after it is popped.",3.6457338,4.465455
+test_111,5.2,4.5,The main idea behind selection sort is to take the least variable from the right and put it directly to the left.,2.6602993,3.9408793
+test_112,4.2,2.5,"array  it is the collection of similar data types ex:int a[10]  ten indicates the size of array. [ ] is index of array, we can give only integer values to array of a.  where as string mean collection of group of characters.  string declarations have a datatype usually causes storage to be allocated in memory that is capable of holding some predetermined number of symbols.    However  Arrays can be declared to contain values of any non reference data type. Multiple arrarys of the same type ",2.050896,3.616476
+test_113,4.2,5.0,"All strings represented by character arrays end with the null character. You declare an object of type string just like any other type, for example:  string s; ",3.4862366,4.3805504
+test_114,3.7,0.0,not answered,0.11056427,2.5835805
+test_115,3.2,4.5,"If a variable is declared global, any function or class can use that variable.",1.7959771,3.4807754
+test_116,12.6,5.0,A queue is like a stack except it follows FIFO (First in first out) .,3.7164402,4.5030947
+test_117,11.11,3.25,By divide and conquer.,1.6545897,3.4055107
+test_118,10.7,5.0,Log(n),1.8916787,3.5317202
+test_119,10.2,4.0,"Each level of a generation in the tree, some people do not count the root as a generation",1.6263711,3.390489
+test_120,3.4,5.0,you do not use unessesary memory space to copy variables between functions,2.2371645,3.7156324
+test_121,4.1,5.0,"Implicit, namely when you give it values, like {1,2,3,4,5,6,7,8,9}, at which the compiler will automatically give this a size. Static, during the declaration. ",2.2103336,3.7013493
+test_122,2.7,1.5,"#include ""hat.h""  allows the use of the hat container, so called from the act of pulling names from a hat.  The header file for hat includes functions for storage and retrieval of it's contents, mainly put(), peek(), and pull().",2.133762,3.6605883
+test_123,11.4,5.0,A function signature is the function's parameters and their type and the name of the function.  The return type is not a part of the function signature.,2.6541436,3.9376025
+test_124,5.4,2.0,n * log( n ),0.9978782,3.0559237
+test_125,1.7,5.0,"A while statement will test the condition of the while loop FIRST - there is a chance the loop will never run. A do...while loop will ALWAYS run once, and then the while test will determine if it will run again.",3.4663482,4.3699627
+test_126,3.3,5.0,"Placing the qualifier inline before a function's return type in the function definition ""advises"" the compiler to generate a copy of the function's code in place to avoid a function call.",2.8098905,4.020511
+test_127,3.1,5.0,It includes the name of the function and the types of its arguments.,3.8245785,4.5606594
+test_128,4.4,5.0,"static arrays keep the values after the end of a function, while non static reinitialize every time.",4.1614685,4.739996
+test_129,6.1,5.0,variable that points to the memory address of another variable and it is type specific.,4.2461452,4.7850723
+test_130,7.7,5.0,"using more pointers to enable the backward movement takes up more memory, having more pointers make it slightly more work to add or remove a node from the list",3.1397362,4.196098
+test_131,4.3,5.0,Specify array name without brackets. Array size is normally passed as another argument so the function can process the specific number of elements in the array. Arrays are passed by reference. Individual array elements passed by value. Functions that take arrays as arguments.,0.65297455,2.8723214
+test_132,11.7,3.75,"Standard arrays terminate when the functions that call them finish. A static array is not removed from memory when it's parent function terminates, leaving it available for other functions (or new instances of the original function).",3.6019275,4.442136
+test_133,11.6,5.0,"A recursive function can often be solved using an iterative function, which runs faster, but is often more complicated.",1.4458454,3.2943897
+test_134,3.6,5.0,Infinite recursion can occur when the base case is omitted or the recursion step is written incorrectly so that it never converges on the base case.,4.0292926,4.669635
+test_135,2.7,4.0,A header file allows for the separation of declaration and implementation into separate files.,2.5578494,3.8863423
+test_136,4.2,5.0,array of characters need a termination character as well as size specification whether its explicit or implicit.,3.7197118,4.504836
+test_137,9.2,5.0,The two main functions of a queue are enqueue and dequeue.,3.0925882,4.1709995
+test_138,2.4,5.0,"at the very beginning when you run a complier, matter a fact in C++ it generates its own default constructor for the class provided if no other constructors have been provided by user",3.9995031,4.653777
+test_139,3.3,3.5,"It generates a copy of the function, if it is needed again.",4.2673063,4.7963367
+test_140,12.4,2.375,"by selecting the first object and comparing it with the next objects to find one that is smaller, if it does it switches the two.  then it comes back the other way and sees if the objects previous to the last one is greater, if it does it switches them.  it does this while decreasing the range it looks at until it finishes in the middle.",3.448142,4.3602715
+test_141,8.1,5.0,a stack is a data structure that uses push to insert an item and pop to remove ad item. The stack use a last in first out structure for inserting and removing items.,2.1540241,3.6713743
+test_142,1.1,4.5,To simulate problem solving for parts of the problem,2.9676676,4.104501
+test_143,9.6,5.0,push,4.9999995,5.0
+test_144,8.4,2.5,"Keep a pointer pointing to the last element entered at the front of  the array and move the pointer ""back"" when you delete an element.",2.244202,3.7193785
+test_145,5.1,5.0,"Every iteration of an insertion sort takes away an element from the input data, inserting it at the right position in the sorted list.",3.8820157,4.591235
+test_146,7.6,4.5,A doubly-linked list allows you to delete a node without traversing the list to establish a trailing pointer.,1.8265374,3.4970434
+test_147,3.6,5.0,"no base case, or the recursive calls do not converge to the base case",3.5802417,4.430592
+test_148,3.6,5.0,"A base case that is the simplest case for a problem so that the function will lead to it, if this does not happen then it will end up as an infinite loop. And a condition to know when to terminate.   ",2.9974663,4.120363
+test_149,11.4,4.75,"It is what uniquely separates overloaded functions. It includes the return type, and the parameter list of the function.",2.9689856,4.105202

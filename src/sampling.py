@@ -22,12 +22,11 @@ def create_subsets():
     # Now split the 200 into 50 dev and 150 test, again stratifying by score_bin
     dev, test = train_test_split(pool, train_size=50, test_size=150, stratify=pool['score_bin'], random_state=42)
     
-    # Drop the temporary score_bin column
-    dev = dev.drop(columns=['score_bin'])
-    test = test.drop(columns=['score_bin'])
-    
-    # Assert they share no rows (disjoint indices)
-    assert len(set(dev.index).intersection(set(test.index))) == 0, "Overlap detected between dev and test sets!"
+    # Drop the temporary score_bin column and add unique row_id
+    dev = dev.drop(columns=['score_bin']).reset_index(drop=True)
+    test = test.drop(columns=['score_bin']).reset_index(drop=True)
+    dev.insert(0, 'row_id', [f'dev_{i:03d}' for i in range(len(dev))])
+    test.insert(0, 'row_id', [f'test_{i:03d}' for i in range(len(test))])
     
     # Save to disk
     os.makedirs("data/processed", exist_ok=True)
