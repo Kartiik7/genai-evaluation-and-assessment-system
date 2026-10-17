@@ -1,0 +1,4 @@
+row_id,question_id,human_score,pred_score,parse_ok,reasoning,retrieved_chunk_ids,prompt_version,model,temperature
+dev_000,6.6,5.0,5.0,True,"The student correctly lists all four ways to pass a pointer to a function based on constness qualifications, exactly matching the reference answer.","pointers_and_memory_001,pointers_and_memory_000,functions_and_recursion_000",rag_v1,gemini-3.8-flash,0.0
+dev_001,8.2,5.0,5.0,True,"The student correctly identified both primary functions defined by a stack, push and pop, matching the reference answer completely.","stacks_000,functions_and_recursion_000,pointers_and_memory_001",rag_v1,gemini-3.8-flash,0.0
+dev_002,7.3,5.0,5.0,True,"The student answer accurately identifies direct access in arrays versus traversal in linked lists, matching both the reference answer and the course material perfectly.","linked_lists_000,linked_lists_001,stacks_000",rag_v1,gemini-3.8-flash,0.0

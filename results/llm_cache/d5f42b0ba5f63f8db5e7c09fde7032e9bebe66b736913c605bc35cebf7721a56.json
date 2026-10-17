@@ -1,0 +1,18 @@
+{
+  "criterion_scores": {
+    "correctness": 5,
+    "completeness": 5,
+    "relevance": 5,
+    "understanding": 5,
+    "clarity": 5
+  },
+  "strengths": [
+    "Correctly identified both primary stack operations: push and pop.",
+    "Concise and directly answered the prompt."
+  ],
+  "missing_concepts": [],
+  "errors": [],
+  "feedback": "Excellent work! Push and pop are indeed the two main primitive operations defined by a stack.",
+  "reasoning": "The student provided the exact two functions matching the reference answer without any errors or omissions.",
+  "score": 5
+}

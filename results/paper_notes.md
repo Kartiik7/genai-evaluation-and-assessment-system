@@ -86,3 +86,24 @@
      - Sample 2 (Accurate simulation definition): Human `5.0` → Gemini `5.0` (`"The student's response correctly and completely captures the role of a prototype..."`)
      - Sample 3 (Pointer constness modes): Human `5.0` → Gemini `5` (`"The student correctly identified all four combinations of pointer and data constness..."`)
   2. **Run 2 (Cached)**: Execution time < 0.2s. 3 cache hits logged (`cached=True` in `results/llm_log.csv`). 0 API quota consumed.
+
+---
+
+## 7. Retrieval System & Knowledge Base
+
+- **Knowledge Base Composition**: 12 curated markdown documents in `data/kb/raw/` spanning core C++ fundamentals and data structures (software lifecycle, OOP/classes, functions & recursion, arrays & strings, pointers & dynamic memory, linked lists, stacks, queues, trees, binary search trees, binary search, sorting algorithms).
+- **Chunking Strategy**: Semantic markdown chunking via `scripts/build_kb.py` yielding 21 distinct chunks (mean 191.0 words/chunk; min 99, max 229 words) with target 120-250 words and 20-word boundary overlap.
+- **N-Gram Leakage Audit**: Evaluated via `scripts/check_kb_leakage.py` against all reference and student answers in `data/processed/mohler_clean.csv`. Verified 0 verbatim 8-gram leakage on added topic notes.
+- **Retrieval Model & Query Mode**: Dense bi-encoder `sentence-transformers/all-MiniLM-L6-v2` with FAISS inner-product index over normalized embeddings (`data/kb/index.faiss`). Query formulation strictly uses the question text alone (`RETRIEVAL_QUERY_MODE = "question"`).
+- **Labeling Protocol**: 30 unique questions sampled from TEST split (`random_state=42`). Top-10 retrieved chunks presented in shuffled, blinded order (ranks and scores hidden) in `results/retrieval_labeling.csv` (300 pairs total). Criterion: a chunk is marked relevant (1) if it contains information needed to answer the question correctly, otherwise 0.
+- **Retrieval Performance (N = 30 labeled questions)**:
+  - Evaluated against labeled top-10 pool:
+    - **Retriever (`all-MiniLM-L6-v2`)**: Precision@1 = **0.8333**, Precision@3 = **0.3667**, Precision@5 = **0.2267**, Recall@3 = **0.9833**, Recall@5 = **1.0000**, MRR = **0.9111**.
+    - **Random Baseline (1000 runs, seed 42)**: Precision@1 = 0.0537, Precision@3 = 0.1433, Precision@5 = 0.0542, Recall@3 = 0.1433, Recall@5 = 0.2394, MRR = 0.1541.
+  - Zero out of 30 questions had missing relevant context in top-3 retrieved chunks (100% top-3 coverage).
+
+---
+
+## 8. Data Integrity Note
+
+A simulated LLM result set was briefly committed in `1bd929f` during an external API outage as an offline pipeline fallback. That simulated data was never used for any reported result in this research, and was fully purged and removed from the repository in commit `8a97093`. All current LLM results, cache entries, and evaluation metrics stem exclusively from real API executions or deterministic local baselines.

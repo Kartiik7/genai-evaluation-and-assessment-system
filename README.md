@@ -2,6 +2,9 @@
 
 A Python research project for automated short-answer grading using classical NLP, machine learning, and GenAI models.
 
+## Retrieval Relevance Definition
+A chunk is relevant if it contains information needed to answer the question correctly.
+
 ## Project Structure
 ```text
 ├── data/
