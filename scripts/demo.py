@@ -5,11 +5,27 @@ Interactive / console demo inspecting short-answer grading predictions on dev se
 Picks 3 dev rows (one low, one mid, one high human score from the first 30 pilot rows)
 and prints:
   - Question, Reference answer, Student answer, Human score
-  - Calibrated TF-IDF, MiniLM, MPNet baseline predictions
+  - Calibrated baseline predictions (labeled: 'calibrated on dev, in-sample, for illustration')
   - CACHED LLM outputs for:
       * direct
       * rubric (with criterion scores, missing concepts, feedback)
       * rag_rubric (with top-3 retrieved chunk_ids and first 100 characters of each)
+
+TF-IDF FIT CORPUS DOCUMENTATION:
+--------------------------------
+The TF-IDF baseline uses:
+  fit_corpus = list(dev_df['reference_answer'].unique()) + list(dev_df['student_answer'])
+This EXACTLY matches the test baseline in notebooks/02_tfidf.ipynb (cell 3, line 89):
+  fit_corpus = list(df_dev['reference_answer'].unique()) + list(df_dev['student_answer'])
+where vocabulary and idf parameters are fit exclusively on the dev set to prevent
+leakage into test evaluations. For dev demonstration, Ordinary Least Squares (OLS)
+linear regression is fit on dev cosine similarities against dev human scores,
+and predictions are clipped to [0, 5].
+
+PRECOMPUTED BASELINES STORAGE:
+------------------------------
+Baseline predictions for dev rows are loaded directly from results/preds_dev_baselines.csv
+to avoid recomputation during demo executions.
 
 Reads strictly from results/ and results/llm_cache/ by default.
 Supports an optional --live flag for a single real API call.
@@ -31,10 +47,10 @@ from src.baselines import calculate_tfidf_cosine
 from src.embeddings import cosine_scores
 from src.rag import retrieve_rag_context
 
-
 CACHE_DIR = Path("results/llm_cache")
 DEV_PATH = Path("data/processed/dev.csv")
 CHUNKS_PATH = Path("data/kb/chunks.csv")
+DEV_BASELINES_CSV = Path("results/preds_dev_baselines.csv")
 RAG_RUBRIC_CSV = Path("results/llm_rag_rubric_dev.csv")
 RAG_CSV = Path("results/llm_rag_dev.csv")
 
@@ -56,25 +72,53 @@ def load_chunks():
     return {}
 
 
-def compute_calibrated_baselines(dev_df):
-    fit_corpus = list(dev_df["reference_answer"].unique()) + list(dev_df["student_answer"])
+def get_or_compute_dev_baselines(dev_df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Loads precomputed dev baselines from results/preds_dev_baselines.csv.
+    If missing, computes them and caches to file.
     
-    # TF-IDF
+    TF-IDF fit corpus: list(dev_df['reference_answer'].unique()) + list(dev_df['student_answer'])
+    (Confirmed identical to notebooks/02_tfidf.ipynb cell 3, line 89).
+    """
+    if DEV_BASELINES_CSV.exists():
+        base_df = pd.read_csv(DEV_BASELINES_CSV)
+        # Ensure row alignment with dev_df
+        merged = dev_df[["row_id", "question_id", "human_score"]].merge(
+            base_df[["row_id", "pred_tfidf", "pred_minilm", "pred_mpnet"]],
+            on="row_id",
+            how="left",
+        )
+        return merged
+
+    # Compute if file does not exist
+    fit_corpus = list(dev_df["reference_answer"].unique()) + list(dev_df["student_answer"])
+
+    # 1. TF-IDF
     tfidf_cos = calculate_tfidf_cosine(dev_df["reference_answer"], dev_df["student_answer"], fit_corpus)
     lr_tfidf = LinearRegression().fit(tfidf_cos.reshape(-1, 1), dev_df["human_score"])
     pred_tfidf = np.clip(lr_tfidf.predict(tfidf_cos.reshape(-1, 1)), 0, 5)
 
-    # MiniLM
+    # 2. MiniLM
     minilm_cos = cosine_scores("sentence-transformers/all-MiniLM-L6-v2", dev_df["reference_answer"], dev_df["student_answer"])
     lr_minilm = LinearRegression().fit(minilm_cos.reshape(-1, 1), dev_df["human_score"])
     pred_minilm = np.clip(lr_minilm.predict(minilm_cos.reshape(-1, 1)), 0, 5)
 
-    # MPNet
+    # 3. MPNet
     mpnet_cos = cosine_scores("sentence-transformers/all-mpnet-base-v2", dev_df["reference_answer"], dev_df["student_answer"])
     lr_mpnet = LinearRegression().fit(mpnet_cos.reshape(-1, 1), dev_df["human_score"])
     pred_mpnet = np.clip(lr_mpnet.predict(mpnet_cos.reshape(-1, 1)), 0, 5)
 
-    return pred_tfidf, pred_minilm, pred_mpnet
+    out_df = pd.DataFrame({
+        "row_id": dev_df["row_id"],
+        "question_id": dev_df["question_id"],
+        "human_score": dev_df["human_score"],
+        "pred_tfidf": pred_tfidf,
+        "pred_minilm": pred_minilm,
+        "pred_mpnet": pred_mpnet,
+    })
+    DEV_BASELINES_CSV.parent.mkdir(parents=True, exist_ok=True)
+    out_df.to_csv(DEV_BASELINES_CSV, index=False)
+    return out_df
 
 
 def find_cached_output(row_id: str, method: str, student_answer: str = ""):
@@ -161,7 +205,7 @@ def print_row_demo(row, pred_tfidf, pred_minilm, pred_mpnet, chunks_dict, live=F
     print(f"Reference Answer: {ref}")
     print(f"Student Answer  : {ans}")
     print("-" * 80)
-    print("CALIBRATED BASELINE PREDICTIONS:")
+    print("CALIBRATED BASELINE PREDICTIONS (calibrated on dev, in-sample, for illustration):")
     print(f"  - TF-IDF (Calibrated) : {pred_tfidf:.2f}")
     print(f"  - MiniLM (Calibrated) : {pred_minilm:.2f}")
     print(f"  - MPNet (Calibrated)  : {pred_mpnet:.2f}")
@@ -220,11 +264,11 @@ def main():
     dev_df = pd.read_csv(DEV_PATH).sort_values("row_id").reset_index(drop=True)
     chunks_dict = load_chunks()
 
-    # Precompute calibrated baselines
-    p_tfidf, p_minilm, p_mpnet = compute_calibrated_baselines(dev_df)
-    dev_df["p_tfidf"] = p_tfidf
-    dev_df["p_minilm"] = p_minilm
-    dev_df["p_mpnet"] = p_mpnet
+    # Load precomputed dev baselines directly from file
+    baselines_df = get_or_compute_dev_baselines(dev_df)
+    dev_df["p_tfidf"] = baselines_df["pred_tfidf"]
+    dev_df["p_minilm"] = baselines_df["pred_minilm"]
+    dev_df["p_mpnet"] = baselines_df["pred_mpnet"]
 
     # Pick 3 rows from dev 30: one low, one mid, one high
     # Low: dev_004 (human=1.875)

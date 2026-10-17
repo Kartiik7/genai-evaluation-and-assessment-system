@@ -1,0 +1,4 @@
+{
+  "reasoning": "The student confuses selection sort with insertion sort (or another method) and completely misses the core concept of repeatedly finding the minimum element to place it in the correct position.",
+  "score": 0
+}

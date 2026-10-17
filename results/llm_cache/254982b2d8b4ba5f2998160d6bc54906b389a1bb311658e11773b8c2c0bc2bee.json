@@ -1,0 +1,4 @@
+{
+  "reasoning": "The student confuses the concept of static storage duration with array size mutability (fixed size vs. dynamic size). Non-static fixed-size arrays also remain the same size throughout execution, so the answer fails to address the lifetime and initialization of static arrays.",
+  "score": 0.0
+}

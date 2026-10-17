@@ -1,0 +1,4 @@
+{
+  "reasoning": "The student only describes the data structure's capacity constraints (a fixed-size array of N elements) rather than explaining how to implement the queue operations or mentioning pointers and circular wrapping.",
+  "score": 1.0
+}

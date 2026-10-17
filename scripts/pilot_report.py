@@ -64,11 +64,21 @@ def main():
         pdf = pd.read_csv(pred_file).sort_values("row_id").reset_index(drop=True)
         # Take first 30 rows
         pdf_30 = pdf.head(30)
+        if len(pdf_30) < len(dev_30):
+            print(f"Warning: {pred_file} has only {len(pdf_30)} rows (expected {len(dev_30)}). Skipping.")
+            continue
+
         if m == "rubric":
             rubric_df = pdf_30.copy()
 
-        pred_scores = pdf_30["llm_score"].values
-        parse_fails = int(pdf_30["parse_failure"].sum()) if "parse_failure" in pdf_30.columns else 0
+        score_col = "pred_score" if "pred_score" in pdf_30.columns else "llm_score"
+        pred_scores = pdf_30[score_col].values
+        if "parse_ok" in pdf_30.columns:
+            parse_fails = int((~pdf_30["parse_ok"]).sum())
+        elif "parse_failure" in pdf_30.columns:
+            parse_fails = int(pdf_30["parse_failure"].sum())
+        else:
+            parse_fails = 0
 
         m_dict = compute_metrics(human_scores, pred_scores)
         m_dict["Method"] = m
@@ -91,16 +101,18 @@ def main():
 
     # Rubric top 3 largest disagreements
     if rubric_df is not None:
-        rubric_df["error_abs"] = (rubric_df["human_score"] - rubric_df["llm_score"]).abs()
-        top3_disagree = rubric_df.sort_values("error_abs", ascending=False).head(3)
+        r_score_col = "pred_score" if "pred_score" in rubric_df.columns else "llm_score"
+        merged = rubric_df.merge(dev_30[["row_id", "question", "student_answer"]], on="row_id", how="left")
+        merged["error_abs"] = (merged["human_score"] - merged[r_score_col]).abs()
+        top3_disagree = merged.sort_values("error_abs", ascending=False).head(3)
         print("\nTOP 3 RUBRIC DISAGREEMENTS (|Human - LLM|):")
         for i, (_, row) in enumerate(top3_disagree.iterrows(), 1):
-            q = str(row.get("question", ""))[:200]
-            ans = str(row.get("student_answer", ""))[:200]
+            q = str(row.get("question_y" if "question_y" in row else "question", ""))[:200]
+            ans = str(row.get("student_answer_y" if "student_answer_y" in row else "student_answer", ""))[:200]
             reason = str(row.get("reasoning", ""))[:200]
             print(f"\n[{i}] Question: {q}")
             print(f"    Student : {ans}")
-            print(f"    Human   : {row.get('human_score')}, LLM: {row.get('llm_score')} (Diff: {row['error_abs']:.2f})")
+            print(f"    Human   : {row.get('human_score')}, LLM: {row.get(r_score_col)} (Diff: {row['error_abs']:.2f})")
             print(f"    Reason  : {reason}")
 
 
