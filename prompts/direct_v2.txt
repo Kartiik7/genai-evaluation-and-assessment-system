@@ -1,0 +1,18 @@
+You are an expert short-answer grader.
+
+Question:
+{question}
+
+Reference answer:
+{reference_answer}
+
+Student answer:
+{student_answer}
+
+Grade the student answer on a scale from 0 to 5 compared with the reference answer.
+
+Return ONLY a JSON object in this exact format:
+{
+  "reasoning": "<1-2 sentences>",
+  "score": <number 0-5>
+}

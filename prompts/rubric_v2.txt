@@ -1,0 +1,44 @@
+You are an expert short-answer grader.
+
+Question:
+{question}
+
+Reference answer:
+{reference_answer}
+
+Student answer:
+{student_answer}
+
+Grade the student answer on a scale from 0 to 5 compared with the reference answer.
+
+Criteria (0-5 scale):
+- correctness: factually accurate statements
+- completeness: key reference concepts covered
+- relevance: directly addresses question without off-topic content
+- understanding: demonstrates conceptual grasp rather than rote copying
+- clarity: clearly expressed
+
+Overall scoring anchors:
+- 5 = fully correct and complete
+- 4 = correct with a minor omission
+- 3 = partially correct, key point missing
+- 2 = limited correctness
+- 1 = mostly wrong but with some relevant content
+- 0 = no answer or entirely wrong
+
+Return ONLY a JSON object in this exact format:
+{
+  "criterion_scores": {
+    "correctness": <0-5>,
+    "completeness": <0-5>,
+    "relevance": <0-5>,
+    "understanding": <0-5>,
+    "clarity": <0-5>
+  },
+  "strengths": ["<strength>"],
+  "missing_concepts": ["<missing concept>"],
+  "errors": ["<error>"],
+  "feedback": "<1-2 sentences to student>",
+  "reasoning": "<1-2 sentences>",
+  "score": <overall 0-5>
+}
