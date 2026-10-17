@@ -1,0 +1,4 @@
+{
+  "reasoning": "The student captures the idea that the static array persists for the duration of the program execution, but phrasing it as 'remains the same' is ambiguous and misses the specific reference point that it is initialized only once across function calls.",
+  "score": 3.0
+}

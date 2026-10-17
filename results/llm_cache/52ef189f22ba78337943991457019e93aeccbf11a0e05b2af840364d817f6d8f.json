@@ -1,0 +1,4 @@
+{
+  "reasoning": "The student correctly conveys the main condition\u2014that a default constructor is generated when none is explicitly defined. However, the phrasing 'when one is not explicitly stated' is slightly ambiguous, as defining *any* constructor (not just a default one) prevents the compiler from generating a default one.",
+  "score": 4.0
+}

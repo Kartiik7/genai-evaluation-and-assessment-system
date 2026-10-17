@@ -1,0 +1,18 @@
+{
+  "criterion_scores": {
+    "correctness": 5,
+    "completeness": 5,
+    "relevance": 5,
+    "understanding": 5,
+    "clarity": 4
+  },
+  "strengths": [
+    "Correctly identifies the absence of a base case as a cause.",
+    "Correctly notes that values not changing (recursive step not progressing towards the base case) causes infinite recursion."
+  ],
+  "missing_concepts": [],
+  "errors": [],
+  "feedback": "Great job identifying both major causes of infinite recursion: omitting a base case and failing to change values toward that base case. Try to write in complete sentences for better clarity.",
+  "reasoning": "The student covers both essential concepts from the reference answer (missing base case and an incorrect/non-progressing recursive step). The phrasing is terse, but the conceptual understanding is completely accurate.",
+  "score": 5
+}

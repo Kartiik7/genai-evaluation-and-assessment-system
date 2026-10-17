@@ -1,0 +1,17 @@
+{
+  "criterion_scores": {
+    "correctness": 5,
+    "completeness": 5,
+    "relevance": 5,
+    "understanding": 5,
+    "clarity": 5
+  },
+  "strengths": [
+    "Identifies both fundamental stack operations accurately and concisely."
+  ],
+  "missing_concepts": [],
+  "errors": [],
+  "feedback": "Excellent job! Push and pop are the two core operations of a stack.",
+  "reasoning": "The student provided the exact two functions requested by the question. The answer is completely correct and fully covers the reference answer.",
+  "score": 5
+}
