@@ -222,16 +222,16 @@ def print_row_demo(row, pred_tfidf, pred_minilm, pred_mpnet, chunks_dict, live=F
 
     # Direct Output
     direct_out = find_cached_output(row_id, "direct", ans)
-    print("LLM METHOD 1: DIRECT (Score + 1-2 sentence reasoning)")
+    print("LLM METHOD 1: DIRECT (smoke-test example, not an evaluation)")
     if direct_out:
         print(f"  Score    : {direct_out.get('score')}")
         print(f"  Reasoning: {direct_out.get('reasoning')}")
     else:
-        print("  [Not in cache - dev pilot pending]")
+        print("  [Not in cache - pilot pending]")
 
     # Rubric Output
     rubric_out = find_cached_output(row_id, "rubric", ans)
-    print("\nLLM METHOD 2: RUBRIC (5 Criteria + Missing Concepts + Feedback)")
+    print("\nLLM METHOD 2: RUBRIC (smoke-test example, not an evaluation)")
     if rubric_out:
         print(f"  Overall Score   : {rubric_out.get('score')}")
         print(f"  Criterion Scores: {rubric_out.get('criterion_scores')}")
@@ -239,11 +239,11 @@ def print_row_demo(row, pred_tfidf, pred_minilm, pred_mpnet, chunks_dict, live=F
         print(f"  Feedback        : {rubric_out.get('feedback')}")
         print(f"  Reasoning       : {rubric_out.get('reasoning')}")
     else:
-        print("  [Not in cache - dev pilot pending]")
+        print("  [Not in cache - pilot pending]")
 
     # RAG Rubric Output
     rag_rubric_out = find_cached_output(row_id, "rag_rubric", ans)
-    print("\nLLM METHOD 3: RAG RUBRIC (Course Context + Rubric Feedback)")
+    print("\nLLM METHOD 3: RAG RUBRIC (smoke-test example, not an evaluation)")
     if rag_rubric_out:
         print(f"  Overall Score   : {rag_rubric_out.get('score')}")
         print(f"  Criterion Scores: {rag_rubric_out.get('criterion_scores')}")
@@ -251,7 +251,7 @@ def print_row_demo(row, pred_tfidf, pred_minilm, pred_mpnet, chunks_dict, live=F
         print(f"  Feedback        : {rag_rubric_out.get('feedback')}")
         print(f"  Reasoning       : {rag_rubric_out.get('reasoning')}")
     else:
-        print("  [Not in cache - dev pilot pending]")
+        print("  [Not in cache - pilot pending]")
     print()
 
 

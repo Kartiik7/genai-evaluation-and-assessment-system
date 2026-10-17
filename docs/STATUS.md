@@ -71,6 +71,8 @@
 ### 2.2 LLM Methods Evaluation
 *Status: Full 30-row dev pilot and 150-row test evaluations pending execution.*
 
+> **Dev pilot status**: Dev pilot started with direct_v2 (14 of 30 rows completed); interrupted by the Gemini free-tier daily quota (20 requests/day). No LLM metrics are reported. Pilot to resume once quota/billing is resolved.
+
 | Method | Split | MAE | RMSE | Pearson $r$ | Spearman $\rho$ | QWK $\kappa$ | Parse Failures | Status |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | **Direct (`direct_v2`)** | Dev pilot ($n=30$) | — | — | — | — | — | — | *not yet run* |
