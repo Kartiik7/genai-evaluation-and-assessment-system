@@ -12,6 +12,8 @@ Student answer:
 Retrieved reference context:
 {context}
 
+The reference answer remains the primary standard for grading. Use the course material only to verify facts and recognize correct alternative wording. Do not penalize the student for missing information that appears only in the course material and not in the reference answer.
+
 Grade the student answer on a scale from 0 to 5 compared with the reference answer.
 
 Criteria (0-5 scale):

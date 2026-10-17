@@ -76,10 +76,16 @@ def parse_args():
         help=f"Gemini model ID (default: {GEMINI_MODEL}).",
     )
     parser.add_argument(
+        "--prompt-version",
+        type=str,
+        default="v2",
+        help="Prompt version family to use (default: v2).",
+    )
+    parser.add_argument(
         "--limit",
         type=int,
         default=None,
-        help="Optional row limit (e.g. 3 for smoke testing).",
+        help="Optional row limit (e.g. 3 for smoke testing, 30 for pilot).",
     )
     return parser.parse_args()
 
@@ -92,13 +98,16 @@ def main():
         raise FileNotFoundError(f"Split file not found: {split_file}")
 
     df = pd.read_csv(split_file)
+    if "row_id" in df.columns:
+        df = df.sort_values("row_id").reset_index(drop=True)
+
     if args.limit is not None and args.limit > 0:
         df = df.head(args.limit)
-        logger.info("Limiting evaluation to first %d rows for smoke test.", len(df))
+        logger.info("Limiting evaluation to first %d rows sorted by row_id.", len(df))
     else:
         logger.info("Loaded split '%s' with %d rows from %s", args.split, len(df), split_file)
 
-    template_name = f"{args.method}_v1"
+    template_name = f"{args.method}_{args.prompt_version}"
     output_path = Path(f"results/llm_{args.method}_{args.split}.csv")
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
@@ -110,8 +119,9 @@ def main():
     records = []
 
     logger.info(
-        "Starting LLM evaluation: method=%s, split=%s, model=%s, temp=%.2f, max_out_tokens=%d",
+        "Starting LLM evaluation: method=%s (%s), split=%s, model=%s, temp=%.2f, max_out_tokens=%d",
         args.method,
+        template_name,
         args.split,
         args.model,
         args.temperature,
@@ -138,6 +148,7 @@ def main():
             chunk_ids, context_text = retrieve_rag_context(question=question)
             retrieved_chunk_ids = chunk_ids
             render_kwargs["retrieved_context"] = context_text
+            render_kwargs["context"] = context_text
 
         # Render prompt
         rendered_prompt, prompt_version = render(template_name, **render_kwargs)
